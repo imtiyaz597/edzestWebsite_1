@@ -13,6 +13,12 @@ app.use('/data', express.static(path.join(__dirname, 'data')));
 app.use(express.json({ limit: '10mb' }));
 app.use(bodyParser.json({ limit: '10mb' }));
 
+
+const allowedOrigins = process.env.CORS_ORIGINS
+  ? process.env.CORS_ORIGINS.split(',')
+  : ['http://localhost:3000', 'https://edzest-websites.vercel.app', 'https://full-stack-mock-website.vercel.app'];
+
+
 app.use((req, res, next) => {
   console.log(`🌐 Incoming request from Origin: ${req.headers.origin}`);
   next();
@@ -31,7 +37,12 @@ app.use(cors({
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200, // handle legacy browser preflight
 }));
+
+
+
 
 
 
