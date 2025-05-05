@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RegisterForm from './RegisterForm'; // ✅ Register form modal
 
-const REACT_API_URI="https://website-backend2.onrender.com"
+const REACT_API_URI="https://edzestwebsite-1-1.onrender.com"
 
 const CreateEvent = () => {
   const [event, setEvent] = useState({

@@ -7,7 +7,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const REACT_API_URI="https://website-backend2.onrender.com"
+const REACT_API_URI="https://edzestwebsite-1-1.onrender.com"
 
 const Events = () => {
   const [events, setEvents] = useState([]);

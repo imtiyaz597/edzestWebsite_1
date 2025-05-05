@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const REACT_API_URI="https://website-backend2.onrender.com"
+const REACT_API_URI="https://edzestwebsite-1-1.onrender.com"
 
 const RegisterForm = ({ event, onClose }) => {
   const [formData, setFormData] = useState({
