@@ -13,22 +13,26 @@ app.use('/data', express.static(path.join(__dirname, 'data')));
 app.use(express.json({ limit: '10mb' }));
 app.use(bodyParser.json({ limit: '10mb' }));
 
-const allowedOrigins = [
-  'https://full-stack-mock-website.vercel.app',
-  'https://edzest-website.vercel.app'
-];
+app.use((req, res, next) => {
+  console.log(`🌐 Incoming request from Origin: ${req.headers.origin}`);
+  next();
+});
 
 app.use(cors({
   origin: function (origin, callback) {
+    console.log(`🔎 Checking CORS for origin: ${origin}`);
     if (!origin || allowedOrigins.includes(origin)) {
+      console.log(`✅ Allowed origin: ${origin}`);
       callback(null, true);
     } else {
+      console.warn(`❌ Blocked by CORS: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
+
 
 
 
