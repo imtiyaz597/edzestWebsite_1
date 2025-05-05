@@ -27,6 +27,11 @@ app.use(cors({
   credentials: true,
 }));
 
+
+app.use(cors({
+  origin: 'https://full-stack-mock-website.vercel.app'
+}));
+
 // Connect to MongoDB using environment variable
 mongoose
   .connect(process.env.MONGO_URI, {
